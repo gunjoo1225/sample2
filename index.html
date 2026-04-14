@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetPark - 반려동물 프리미엄 케어</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SVG Icon Defs -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <defs>
+      <symbol id="icon-shampoo" viewBox="0 0 64 64">
+        <rect x="20" y="8" width="24" height="8" rx="2" fill="currentColor"/>
+        <rect x="28" y="2" width="8" height="8" rx="2" fill="currentColor"/>
+        <rect x="16" y="16" width="32" height="42" rx="6" fill="currentColor"/>
+        <circle cx="32" cy="37" r="8" fill="#fff" opacity="0.3"/>
+      </symbol>
+      <symbol id="icon-bone" viewBox="0 0 64 64">
+        <path d="M18 22a8 8 0 1 1 4 4l-4 12a8 8 0 1 1-4-4l4-12z" fill="currentColor" transform="translate(14,6)"/>
+        <rect x="22" y="24" width="20" height="16" rx="8" fill="currentColor" transform="rotate(-30 32 32)"/>
+      </symbol>
+      <symbol id="icon-paw" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="40" rx="12" ry="10" fill="currentColor"/>
+        <circle cx="20" cy="24" r="6" fill="currentColor"/>
+        <circle cx="32" cy="20" r="6" fill="currentColor"/>
+        <circle cx="44" cy="24" r="6" fill="currentColor"/>
+        <circle cx="14" cy="34" r="5" fill="currentColor"/>
+        <circle cx="50" cy="34" r="5" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-bowl" viewBox="0 0 64 64">
+        <path d="M8 28c0 0 4 20 24 20s24-20 24-20H8z" fill="currentColor"/>
+        <rect x="4" y="24" width="56" height="6" rx="3" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-fish" viewBox="0 0 64 64">
+        <ellipse cx="28" cy="32" rx="20" ry="14" fill="currentColor"/>
+        <polygon points="48,32 60,20 60,44" fill="currentColor"/>
+        <circle cx="18" cy="28" r="3" fill="#fff" opacity="0.4"/>
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 64 64">
+        <path d="M32 56S8 40 8 24a12 12 0 0 1 24 0 12 12 0 0 1 24 0C56 40 32 56 32 56z" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-truck" viewBox="0 0 64 64">
+        <rect x="2" y="20" width="36" height="24" rx="3" fill="currentColor"/>
+        <path d="M38 28h14l8 12v4H38V28z" fill="currentColor" opacity="0.7"/>
+        <circle cx="14" cy="48" r="6" fill="currentColor"/>
+        <circle cx="50" cy="48" r="6" fill="currentColor"/>
+        <circle cx="14" cy="48" r="3" fill="#fff"/>
+        <circle cx="50" cy="48" r="3" fill="#fff"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 64 64">
+        <polygon points="32,4 40,24 60,26 44,40 48,60 32,50 16,60 20,40 4,26 24,24" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-crown" viewBox="0 0 64 64">
+        <polygon points="8,48 8,24 20,36 32,16 44,36 56,24 56,48" fill="currentColor"/>
+        <rect x="8" y="48" width="48" height="8" rx="2" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 64 64">
+        <rect x="16" y="4" width="32" height="56" rx="6" fill="currentColor"/>
+        <rect x="20" y="12" width="24" height="36" rx="2" fill="#fff" opacity="0.3"/>
+        <circle cx="32" cy="54" r="3" fill="#fff" opacity="0.3"/>
+      </symbol>
+      <symbol id="icon-wifi" viewBox="0 0 64 64">
+        <circle cx="32" cy="52" r="5" fill="currentColor"/>
+        <path d="M16 36a22 22 0 0 1 32 0" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M8 26a34 34 0 0 1 48 0" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 64 64">
+        <rect x="6" y="18" width="52" height="36" rx="6" fill="currentColor"/>
+        <circle cx="32" cy="36" r="12" fill="#fff" opacity="0.3"/>
+        <circle cx="32" cy="36" r="8" fill="currentColor" opacity="0.5"/>
+        <rect x="22" y="12" width="20" height="8" rx="2" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- 1. Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">PetPark</a>
+      <div class="search-bar">
+        <input type="text" placeholder="검색어를 입력하세요">
+      </div>
+      <div class="header-actions">
+        <a href="#">로그인</a>
+        <a href="#" class="cart-link">장바구니<span class="cart-badge">0</span></a>
+        <button class="hamburger" aria-label="메뉴">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Event Banner Strip -->
+  <div class="event-strip">
+    <a href="#" class="strip-item active">VIP 최대 <strong>35% 할인</strong></a>
+    <a href="#" class="strip-item">첫 구매 <strong>3,000원 쿠폰</strong></a>
+    <a href="#" class="strip-item">정기배송 <strong>무료배송</strong></a>
+  </div>
+
+  <!-- 3. Top Navigation -->
+  <nav class="top-nav">
+    <div class="container">
+      <ul class="top-nav-list">
+        <li><a href="#best-seller">쇼핑</a></li>
+        <li><a href="#vip-intro">VIP 센터</a></li>
+        <li><a href="#friends-app">PetPark 프렌즈</a></li>
+        <li><a href="#community">이벤트</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 4. Hero Section -->
+  <section class="hero fade-in-up">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="hero-kicker">프리미엄 반려동물 케어</p>
+      <h1 class="hero-title">우리가<br>존재하는 이유</h1>
+      <p class="hero-desc">반려동물을 위한 진심,<br>PetPark가 존재하는 이유입니다.</p>
+      <a href="#best-seller" class="btn btn-primary">쇼핑 시작하기</a>
+    </div>
+  </section>
+
+  <!-- 5. Awards Section -->
+  <section class="awards fade-in-up">
+    <div class="container">
+      <div class="awards-grid">
+        <div class="award-item">
+          <div class="award-icon">
+            <svg width="40" height="40"><use href="#icon-star"/></svg>
+          </div>
+          <p>2025 Good Design</p>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">
+            <svg width="40" height="40"><use href="#icon-crown"/></svg>
+          </div>
+          <p>iF Design Award</p>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">
+            <svg width="40" height="40"><use href="#icon-star"/></svg>
+          </div>
+          <p>Red Dot Award</p>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">
+            <svg width="40" height="40"><use href="#icon-crown"/></svg>
+          </div>
+          <p>IDEA Award</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. VIP Introduction -->
+  <section class="vip-intro fade-in-up" id="vip-intro">
+    <div class="container vip-intro-inner">
+      <div class="vip-intro-image">
+        <svg width="100" height="100" style="color:#FF6B35"><use href="#icon-crown"/></svg>
+      </div>
+      <div class="vip-intro-content">
+        <h2 class="section-title">VIP 정기배송</h2>
+        <p>매월 자동으로 배송되는 프리미엄 케어 서비스.<br>
+        최대 35% 할인과 무료배송 혜택을 누리세요.</p>
+        <div class="vip-features">
+          <span class="vip-feature-tag">최대 35% 할인</span>
+          <span class="vip-feature-tag">무료배송</span>
+          <span class="vip-feature-tag">전용 혜택</span>
+          <span class="vip-feature-tag">주기 변경 자유</span>
+        </div>
+        <a href="#" class="btn btn-primary">VIP 센터 바로가기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Customer Reviews Carousel -->
+  <section class="reviews-section fade-in-up">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">고객 리뷰</h2>
+        <p class="section-subtitle">VIP 고객님들의 솔직한 후기</p>
+      </div>
+      <div class="carousel">
+        <button class="carousel-btn carousel-prev" aria-label="이전">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"프리미엄 샴푸로 바꾸고 나서 털 상태가 눈에 띄게 좋아졌어요. 거품이 풍성하고 향도 은은해서 너무 좋습니다."</p>
+              <p class="reviewer-name">정기배송 12회차 김** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"아이가 목욕을 싫어했는데 이 샴푸로 바꾸니까 이제 좋아해요. 저자극이라 피부 트러블도 없어졌습니다."</p>
+              <p class="reviewer-name">정기배송 8회차 이** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"정기배송이라 매번 주문할 필요 없어서 편해요. 할인도 크고 품질도 항상 일정합니다. 강추!"</p>
+              <p class="reviewer-name">정기배송 20회차 박** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span></div>
+              <p class="review-text">"영양제 스틱 우리 강아지가 간식인 줄 알고 너무 좋아해요. 관절 건강에도 도움이 된다니 일석이조입니다."</p>
+              <p class="reviewer-name">정기배송 5회차 최** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"IoT 급식기 사용 중인데 외출 시에도 앱으로 관리할 수 있어서 정말 편리합니다. 디자인도 예뻐요."</p>
+              <p class="reviewer-name">정기배송 15회차 정** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"고양이 전용 제품이 다양해서 좋아요. 캣 샴푸 향이 은은하고 세정력도 좋습니다. 계속 쓸 예정이에요."</p>
+              <p class="reviewer-name">정기배송 10회차 한** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span></div>
+              <p class="review-text">"패키지 디자인이 깔끔해서 선물용으로도 좋아요. 친구 강아지 생일 선물로 보냈더니 반응이 좋았습니다."</p>
+              <p class="reviewer-name">정기배송 3회차 윤** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"VIP 혜택이 생각보다 훨씬 좋아요. 35% 할인에 무료배송까지! 다른 곳에서 살 이유가 없습니다."</p>
+              <p class="reviewer-name">정기배송 24회차 서** 님</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" aria-label="다음">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. VIP Benefits -->
+  <section class="vip-benefits fade-in-up">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">VIP 혜택</h2>
+        <p class="section-subtitle">VIP만을 위한 8가지 특별 혜택</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128176;</div>
+          <h3>최대 35% 할인</h3>
+          <p>VIP 전용 특별가</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128666;</div>
+          <h3>무료 배송</h3>
+          <p>매월 무료로 배송</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#127873;</div>
+          <h3>생일 선물</h3>
+          <p>반려동물 생일 축하 선물</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128179;</div>
+          <h3>전용 쿠폰</h3>
+          <p>매월 추가 할인 쿠폰</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128260;</div>
+          <h3>주기 변경</h3>
+          <p>배송 주기 자유 변경</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128242;</div>
+          <h3>앱 전용 혜택</h3>
+          <p>프렌즈 앱 리워드</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#129302;</div>
+          <h3>IoT 연동</h3>
+          <p>스마트 급식기 연동</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128147;</div>
+          <h3>사회 공헌</h3>
+          <p>유기동물 후원 참여</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Best Seller -->
+  <section class="product-section section-alt fade-in-up" id="best-seller">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">베스트 상품</h2>
+        <p class="section-subtitle">가장 많이 사랑받는 제품</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF0E8">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#FF6B35"><use href="#icon-shampoo"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">소프트 목욕 거품 샴푸</h3>
+            <p class="product-desc">순한 거품으로 깨끗하게</p>
+            <div class="price-group">
+              <span class="original-price">29,900원</span>
+              <span class="discount-rate">20%</span>
+              <span class="sale-price">23,900원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">20,900원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E8F5E9">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#4CAF50"><use href="#icon-bone"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">오가닉 덴탈 껌 20개입</h3>
+            <p class="product-desc">치석 관리와 구취 제거</p>
+            <div class="price-group">
+              <span class="original-price">18,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">15,300원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,600원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E3F2FD">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#2196F3"><use href="#icon-paw"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">프리미엄 발 세정 폼</h3>
+            <p class="product-desc">산책 후 간편한 발 세정</p>
+            <div class="price-group">
+              <span class="original-price">15,000원</span>
+              <span class="discount-rate">10%</span>
+              <span class="sale-price">13,500원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">10,500원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF9C4">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#FFC107"><use href="#icon-bowl"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">유기농 프리미엄 사료 2kg</h3>
+            <p class="product-desc">100% 유기농 원료</p>
+            <div class="price-group">
+              <span class="original-price">45,000원</span>
+              <span class="discount-rate">25%</span>
+              <span class="sale-price">33,750원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">29,250원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#F3E5F5">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#9C27B0"><use href="#icon-fish"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">참치 & 연어 캣 캔 12개입</h3>
+            <p class="product-desc">고양이가 좋아하는 맛</p>
+            <div class="price-group">
+              <span class="original-price">24,000원</span>
+              <span class="discount-rate">20%</span>
+              <span class="sale-price">19,200원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">16,800원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E0F7FA">
+            <span class="badge">인기</span>
+            <svg width="60" height="60" style="color:#00BCD4"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">관절 영양제 스틱 30개입</h3>
+            <p class="product-desc">맛있게 먹는 관절 건강</p>
+            <div class="price-group">
+              <span class="original-price">32,000원</span>
+              <span class="discount-rate">20%</span>
+              <span class="sale-price">25,600원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">22,400원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer">
+        <a href="#" class="btn btn-ghost">전체 보기 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. New Arrival -->
+  <section class="product-section fade-in-up" id="new-arrival">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">신상품</h2>
+        <p class="section-subtitle">새롭게 출시된 제품</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF0E8">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#FF6B35"><use href="#icon-shampoo"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">딥 클렌징 포 샴푸</h3>
+            <p class="product-desc">깊은 세정력, 부드러운 마무리</p>
+            <div class="price-group">
+              <span class="sale-price">26,900원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">22,900원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E8F5E9">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#4CAF50"><use href="#icon-paw"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">발바닥 보습 밤</h3>
+            <p class="product-desc">건조한 패드에 촉촉한 보습</p>
+            <div class="price-group">
+              <span class="sale-price">14,500원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,300원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E3F2FD">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#2196F3"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">피부 건강 영양제</h3>
+            <p class="product-desc">피모 건강을 위한 오메가3</p>
+            <div class="price-group">
+              <span class="sale-price">28,000원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">23,800원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF9C4">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#FFC107"><use href="#icon-bowl"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">그레인프리 사료 1.5kg</h3>
+            <p class="product-desc">곡물 무첨가 프리미엄</p>
+            <div class="price-group">
+              <span class="sale-price">38,000원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">32,300원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#F3E5F5">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#9C27B0"><use href="#icon-fish"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">캣 츄르 버라이어티 팩</h3>
+            <p class="product-desc">4가지 맛 모음 24개입</p>
+            <div class="price-group">
+              <span class="sale-price">19,900원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">16,900원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E0F7FA">
+            <span class="badge badge-new">신상품</span>
+            <svg width="60" height="60" style="color:#00BCD4"><use href="#icon-bone"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">소프트 져키 트릿 200g</h3>
+            <p class="product-desc">부드러운 식감의 훈련 간식</p>
+            <div class="price-group">
+              <span class="sale-price">12,900원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">10,900원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer">
+        <a href="#" class="btn btn-ghost">전체 보기 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Curation -->
+  <section class="product-section section-alt fade-in-up" id="curation">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">추천 상품</h2>
+        <p class="section-subtitle">영양제 스틱 라인</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF0E8">
+            <svg width="60" height="60" style="color:#FF6B35"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">관절 케어 스틱</h3>
+            <p class="product-desc">글루코사민 함유</p>
+            <div class="price-group">
+              <span class="original-price">18,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">15,300원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,600원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E8F5E9">
+            <svg width="60" height="60" style="color:#4CAF50"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">장 건강 스틱</h3>
+            <p class="product-desc">유산균 + 프리바이오틱스</p>
+            <div class="price-group">
+              <span class="original-price">18,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">15,300원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,600원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E3F2FD">
+            <svg width="60" height="60" style="color:#2196F3"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">피모 건강 스틱</h3>
+            <p class="product-desc">오메가3 + 비오틴</p>
+            <div class="price-group">
+              <span class="original-price">18,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">15,300원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,600원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#FFF9C4">
+            <svg width="60" height="60" style="color:#FFC107"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">면역 강화 스틱</h3>
+            <p class="product-desc">비타민 + 아연</p>
+            <div class="price-group">
+              <span class="original-price">18,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">15,300원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">12,600원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#F3E5F5">
+            <svg width="60" height="60" style="color:#9C27B0"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">눈 건강 스틱</h3>
+            <p class="product-desc">루테인 + 블루베리</p>
+            <div class="price-group">
+              <span class="original-price">20,000원</span>
+              <span class="discount-rate">15%</span>
+              <span class="sale-price">17,000원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">14,000원</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background:#E0F7FA">
+            <svg width="60" height="60" style="color:#00BCD4"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">종합 영양 스틱</h3>
+            <p class="product-desc">멀티비타민 올인원</p>
+            <div class="price-group">
+              <span class="original-price">22,000원</span>
+              <span class="discount-rate">20%</span>
+              <span class="sale-price">17,600원</span>
+            </div>
+            <div class="vip-price">
+              <span class="vip-badge">VIP</span>
+              <span class="vip-amount">15,400원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-footer">
+        <a href="#" class="btn btn-ghost">전체 보기 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Friends App -->
+  <section class="friends-app fade-in-up" id="friends-app">
+    <div class="container friends-inner">
+      <div class="friends-content">
+        <h2 class="section-title">PetPark 프렌즈</h2>
+        <p>반려동물 라이프를 더 즐겁게.<br>
+        쇼츠, 리워드, 커뮤니티를 하나의 앱에서 만나보세요.</p>
+        <div class="app-features">
+          <div class="app-feature">
+            <div class="app-feature-icon">&#127916;</div>
+            <span>쇼츠 - 반려동물 영상 공유</span>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#127873;</div>
+            <span>리워드 - 활동으로 포인트 적립</span>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#128172;</div>
+            <span>커뮤니티 - 반려인 소통 공간</span>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#128276;</div>
+            <span>알림 - 건강 관리 & 배송 알림</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">앱 다운로드</a>
+      </div>
+      <div class="phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-block" style="background:#FFF0E8; flex:2"></div>
+          <div class="phone-block" style="background:#E8F5E9; flex:1"></div>
+          <div class="phone-block" style="background:#E3F2FD; flex:1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. IoT Products -->
+  <section class="iot-section fade-in-up" id="iot">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">스마트 IoT 케어</h2>
+        <p class="section-subtitle">스마트하게 돌보는 반려동물 케어</p>
+      </div>
+      <div class="iot-grid">
+        <div class="iot-card">
+          <div class="iot-image" style="background:linear-gradient(135deg,#FFF0E8,#FFE0CC)">
+            <svg width="60" height="60" style="color:#FF6B35"><use href="#icon-bowl"/></svg>
+          </div>
+          <div class="iot-info">
+            <h3>스마트 자동 급식기</h3>
+            <p>앱으로 시간, 양을 설정하고 외출 중에도 안심 급식. 카메라 내장으로 실시간 확인.</p>
+          </div>
+        </div>
+        <div class="iot-card">
+          <div class="iot-image" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">
+            <svg width="60" height="60" style="color:#2196F3"><use href="#icon-bowl"/></svg>
+          </div>
+          <div class="iot-info">
+            <h3>스마트 자동 급수기</h3>
+            <p>필터 교체 알림, 수위 감지, 순환 정수 시스템으로 항상 깨끗한 물을 제공합니다.</p>
+          </div>
+        </div>
+        <div class="iot-card">
+          <div class="iot-image" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7)">
+            <svg width="60" height="60" style="color:#9C27B0"><use href="#icon-wifi"/></svg>
+          </div>
+          <div class="iot-info">
+            <h3>스마트 고양이 화장실</h3>
+            <p>자동 청소, 사용 패턴 분석, 건강 이상 감지 알림. 냄새 걱정 없는 스마트 라이프.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. CSR -->
+  <section class="csr-section fade-in-up" id="csr">
+    <div class="container csr-inner">
+      <div class="csr-image" style="background:linear-gradient(135deg,#FFF0E8,#FFCCBC)">
+        <svg width="80" height="80" style="color:#FF6B35"><use href="#icon-heart"/></svg>
+      </div>
+      <div class="csr-content">
+        <h2 class="section-title">함께하는 사랑</h2>
+        <p>PetPark는 매출의 일부를 유기동물 보호 활동에 기부합니다.<br>
+        여러분의 구매가 도움이 필요한 동물들에게 따뜻한 손길이 됩니다.</p>
+        <p>유기동물 입양 캠페인, 보호소 후원, 중성화 지원 사업을 통해<br>
+        모든 반려동물이 사랑받는 세상을 만들어갑니다.</p>
+        <a href="#" class="btn btn-secondary">더 알아보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. Community -->
+  <section class="community-section fade-in-up" id="community">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">커뮤니티</h2>
+        <p class="section-subtitle">PetPark 이야기</p>
+      </div>
+      <div class="community-grid">
+        <div class="community-card">
+          <div class="community-thumb" style="background:#FFF0E8">
+            <svg width="40" height="40" style="color:#FF6B35"><use href="#icon-camera"/></svg>
+          </div>
+          <div class="community-info">
+            <h3>봄맞이 목욕 꿀팁 5가지</h3>
+            <p>환절기 반려동물 목욕, 이렇게 하면 피부 트러블 없이 깨끗하게!</p>
+            <p class="community-date">2026.04.10</p>
+          </div>
+        </div>
+        <div class="community-card">
+          <div class="community-thumb" style="background:#E8F5E9">
+            <svg width="40" height="40" style="color:#4CAF50"><use href="#icon-paw"/></svg>
+          </div>
+          <div class="community-info">
+            <h3>강아지 관절 건강 체크리스트</h3>
+            <p>우리 아이 관절, 이 신호를 놓치지 마세요. 수의사 추천 가이드.</p>
+            <p class="community-date">2026.04.05</p>
+          </div>
+        </div>
+        <div class="community-card">
+          <div class="community-thumb" style="background:#E3F2FD">
+            <svg width="40" height="40" style="color:#2196F3"><use href="#icon-heart"/></svg>
+          </div>
+          <div class="community-info">
+            <h3>유기동물 봄 입양 캠페인 후기</h3>
+            <p>지난 달 진행된 입양 캠페인, 42마리가 새 가족을 만났습니다.</p>
+            <p class="community-date">2026.03.28</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">PetPark</div>
+        <p>반려동물과 함께하는 행복한 매일</p>
+        <p>주식회사 펫파크 | 대표: 홍길동</p>
+        <p>사업자등록번호: 123-45-67890</p>
+      </div>
+      <div>
+        <h4>고객센터</h4>
+        <p><strong>1588-0000</strong></p>
+        <p>평일 09:00 - 18:00</p>
+        <p>점심 12:00 - 13:00</p>
+        <p>주말/공휴일 휴무</p>
+      </div>
+      <div>
+        <h4>소셜 미디어</h4>
+        <div class="sns-links">
+          <a href="#" class="sns-link" aria-label="인스타그램">인스타</a>
+          <a href="#" class="sns-link" aria-label="유튜브">유튜브</a>
+          <a href="#" class="sns-link" aria-label="블로그">블로그</a>
+        </div>
+      </div>
+      <div>
+        <h4>안내</h4>
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">배송 안내</a>
+        <a href="#">교환/반품 안내</a>
+        <a href="#">자주 묻는 질문</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 PetPark. 모든 권리 보유.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Navigation -->
+  <div class="overlay"></div>
+  <nav class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="닫기">&times;</button>
+    <a href="#best-seller">쇼핑</a>
+    <a href="#vip-intro">VIP 센터</a>
+    <a href="#friends-app">PetPark 프렌즈</a>
+    <a href="#community">이벤트</a>
+    <a href="#">로그인</a>
+    <a href="#">장바구니</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
