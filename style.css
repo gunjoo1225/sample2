@@ -676,53 +676,87 @@ input {
   font-weight: 600;
 }
 
-/* 5.7 Reviews Carousel */
+/* 5.7 Reviews - Testimonials Columns */
 .reviews-section {
-  padding: var(--space-xxl) 0;
+  padding: var(--space-xxl) 0 0;
   background: var(--color-bg-alt);
 }
 
-.carousel {
+.testimonials-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.carousel-viewport {
   overflow: hidden;
-  flex: 1;
+  height: 620px;
+  margin-top: var(--space-lg);
 }
 
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  transition: transform var(--transition-slow);
-}
-
-.carousel-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all var(--transition-base);
+.testimonials-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
   z-index: 2;
+  pointer-events: none;
+  height: 120px;
 }
 
-.carousel-btn:hover {
-  box-shadow: var(--shadow-md);
-  background: var(--color-primary);
-  color: #fff;
+.testimonials-fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--color-bg-alt) 0%, transparent 100%);
 }
 
-.carousel-btn svg {
-  width: 20px;
-  height: 20px;
+.testimonials-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--color-bg-alt) 0%, transparent 100%);
+}
+
+.testimonials-columns {
+  display: flex;
+  gap: 16px;
+  padding: 0 var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 100%;
+}
+
+.testimonials-col {
+  flex: 1;
+  overflow: hidden;
+}
+
+.testimonials-col-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation-duration: 28s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.col-up .testimonials-col-inner {
+  animation-name: scrollUp;
+}
+
+.col-down .testimonials-col-inner {
+  animation-name: scrollDown;
+  animation-duration: 32s;
+}
+
+.testimonials-wrapper:hover .testimonials-col-inner {
+  animation-play-state: paused;
+}
+
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.reviews-section .review-card {
+  min-width: unset;
+  width: 100%;
 }
 
 /* 5.8 VIP Benefits */
@@ -1291,13 +1325,16 @@ body.menu-open .overlay {
     height: 400px;
   }
 
-  /* Carousel */
-  .carousel-btn {
-    width: 36px;
-    height: 36px;
+  /* Testimonials Columns */
+  .testimonials-wrapper {
+    height: 500px;
   }
 
-  .review-card {
-    min-width: 260px;
+  .testimonials-columns {
+    gap: 10px;
+  }
+
+  .col-down {
+    display: none;
   }
 }

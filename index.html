@@ -185,12 +185,15 @@
         <h2 class="section-title">고객 리뷰</h2>
         <p class="section-subtitle">VIP 고객님들의 솔직한 후기</p>
       </div>
-      <div class="carousel">
-        <button class="carousel-btn carousel-prev" aria-label="이전">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
+    </div>
+    <div class="testimonials-wrapper">
+      <div class="testimonials-fade testimonials-fade-top"></div>
+      <div class="testimonials-fade testimonials-fade-bottom"></div>
+      <div class="testimonials-columns">
+
+        <!-- Column 1 - scroll up -->
+        <div class="testimonials-col col-up">
+          <div class="testimonials-col-inner">
             <div class="review-card">
               <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
               <p class="review-text">"프리미엄 샴푸로 바꾸고 나서 털 상태가 눈에 띄게 좋아졌어요. 거품이 풍성하고 향도 은은해서 너무 좋습니다."</p>
@@ -203,9 +206,41 @@
             </div>
             <div class="review-card">
               <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
-              <p class="review-text">"정기배송이라 매번 주문할 필요 없어서 편해요. 할인도 크고 품질도 항상 일정합니다. 강추!"</p>
-              <p class="reviewer-name">정기배송 20회차 박** 님</p>
+              <p class="review-text">"배송이 정말 빠르고 포장도 꼼꼼해요. 제품이 손상 없이 도착해서 매우 만족합니다."</p>
+              <p class="reviewer-name">정기배송 6회차 강** 님</p>
             </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"강아지 간식이 너무 맛있나봐요, 훈련할 때 집중력이 눈에 띄게 올라갔어요!"</p>
+              <p class="reviewer-name">정기배송 9회차 조** 님</p>
+            </div>
+            <!-- duplicate for seamless loop -->
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"프리미엄 샴푸로 바꾸고 나서 털 상태가 눈에 띄게 좋아졌어요. 거품이 풍성하고 향도 은은해서 너무 좋습니다."</p>
+              <p class="reviewer-name">정기배송 12회차 김** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"아이가 목욕을 싫어했는데 이 샴푸로 바꾸니까 이제 좋아해요. 저자극이라 피부 트러블도 없어졌습니다."</p>
+              <p class="reviewer-name">정기배송 8회차 이** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"배송이 정말 빠르고 포장도 꼼꼼해요. 제품이 손상 없이 도착해서 매우 만족합니다."</p>
+              <p class="reviewer-name">정기배송 6회차 강** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"강아지 간식이 너무 맛있나봐요, 훈련할 때 집중력이 눈에 띄게 올라갔어요!"</p>
+              <p class="reviewer-name">정기배송 9회차 조** 님</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 - scroll down -->
+        <div class="testimonials-col col-down">
+          <div class="testimonials-col-inner">
             <div class="review-card">
               <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span></div>
               <p class="review-text">"영양제 스틱 우리 강아지가 간식인 줄 알고 너무 좋아해요. 관절 건강에도 도움이 된다니 일석이조입니다."</p>
@@ -216,6 +251,43 @@
               <p class="review-text">"IoT 급식기 사용 중인데 외출 시에도 앱으로 관리할 수 있어서 정말 편리합니다. 디자인도 예뻐요."</p>
               <p class="reviewer-name">정기배송 15회차 정** 님</p>
             </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"미용 키트가 퀄리티 대비 가격이 너무 합리적이에요. 집에서 직접 미용하니 강아지 스트레스도 줄었어요."</p>
+              <p class="reviewer-name">정기배송 7회차 임** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"전반적으로 제품 퀄리티가 매우 높아요. 반려동물 전문 브랜드답게 성분도 안심이 됩니다."</p>
+              <p class="reviewer-name">정기배송 18회차 오** 님</p>
+            </div>
+            <!-- duplicate for seamless loop -->
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span></div>
+              <p class="review-text">"영양제 스틱 우리 강아지가 간식인 줄 알고 너무 좋아해요. 관절 건강에도 도움이 된다니 일석이조입니다."</p>
+              <p class="reviewer-name">정기배송 5회차 최** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"IoT 급식기 사용 중인데 외출 시에도 앱으로 관리할 수 있어서 정말 편리합니다. 디자인도 예뻐요."</p>
+              <p class="reviewer-name">정기배송 15회차 정** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"미용 키트가 퀄리티 대비 가격이 너무 합리적이에요. 집에서 직접 미용하니 강아지 스트레스도 줄었어요."</p>
+              <p class="reviewer-name">정기배송 7회차 임** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"전반적으로 제품 퀄리티가 매우 높아요. 반려동물 전문 브랜드답게 성분도 안심이 됩니다."</p>
+              <p class="reviewer-name">정기배송 18회차 오** 님</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3 - scroll up -->
+        <div class="testimonials-col col-up">
+          <div class="testimonials-col-inner">
             <div class="review-card">
               <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
               <p class="review-text">"고양이 전용 제품이 다양해서 좋아요. 캣 샴푸 향이 은은하고 세정력도 좋습니다. 계속 쓸 예정이에요."</p>
@@ -231,11 +303,35 @@
               <p class="review-text">"VIP 혜택이 생각보다 훨씬 좋아요. 35% 할인에 무료배송까지! 다른 곳에서 살 이유가 없습니다."</p>
               <p class="reviewer-name">정기배송 24회차 서** 님</p>
             </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"정기배송이라 매번 주문할 필요 없어서 편해요. 할인도 크고 품질도 항상 일정합니다. 강추!"</p>
+              <p class="reviewer-name">정기배송 20회차 박** 님</p>
+            </div>
+            <!-- duplicate for seamless loop -->
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"고양이 전용 제품이 다양해서 좋아요. 캣 샴푸 향이 은은하고 세정력도 좋습니다. 계속 쓸 예정이에요."</p>
+              <p class="reviewer-name">정기배송 10회차 한** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star">&#9733;</span></div>
+              <p class="review-text">"패키지 디자인이 깔끔해서 선물용으로도 좋아요. 친구 강아지 생일 선물로 보냈더니 반응이 좋았습니다."</p>
+              <p class="reviewer-name">정기배송 3회차 윤** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"VIP 혜택이 생각보다 훨씬 좋아요. 35% 할인에 무료배송까지! 다른 곳에서 살 이유가 없습니다."</p>
+              <p class="reviewer-name">정기배송 24회차 서** 님</p>
+            </div>
+            <div class="review-card">
+              <div class="rating"><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span><span class="star filled">&#9733;</span></div>
+              <p class="review-text">"정기배송이라 매번 주문할 필요 없어서 편해요. 할인도 크고 품질도 항상 일정합니다. 강추!"</p>
+              <p class="reviewer-name">정기배송 20회차 박** 님</p>
+            </div>
           </div>
         </div>
-        <button class="carousel-btn carousel-next" aria-label="다음">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
+
       </div>
     </div>
   </section>
